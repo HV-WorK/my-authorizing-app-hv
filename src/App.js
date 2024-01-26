@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TreeNode from './components/TreeNode';
+import './App.css'; // Make sure this path is correct
 
-function App() {
+const App = () => {
+  const [tree, setTree] = useState({
+    id: 'root',
+    type: 'container',
+    content: 'Root',
+    children: []
+  });
+
+  // Assuming you have functions to add and remove nodes
+  const addChild = (parentId) => {
+    // Logic to add a child node to the tree based on parentId
+  };
+
+  const removeNode = (nodeId) => {
+    // Logic to remove a node from the tree
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* Navigation bar goes here */}
       </header>
+      <aside className="App-sidebar">
+        <TreeNode node={tree} addChild={addChild} removeNode={removeNode} />
+      </aside>
+      <main className="App-main">
+        {/* Main content editor goes here */}
+      </main>
+      <footer className="App-footer">
+        {/* Footer content like buttons and hints goes here */}
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
